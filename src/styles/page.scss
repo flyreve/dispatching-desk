@@ -1,0 +1,51 @@
+.page {
+  width: 1px;
+  height: 100%;
+  position: relative;
+}
+
+.main-1-card {
+  width: 250px;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  bottom: 10px;
+}
+
+.main-2-card {
+  width: 250px;
+  position: absolute;
+  left: 270px;
+  top: 10px;
+  bottom: 10px;
+}
+
+.dialog-2-card {
+  width: 250px;
+  position: absolute;
+  left: 270px;
+  top: 10px;
+}
+
+.dialog-3-card {
+  width: 250px;
+  position: absolute;
+  left: 530px;
+  top: 10px;
+}
+
+.close-btn {
+  font-size: 16px;
+  float: right;
+  padding: 3px 0;
+  margin-left: 10px;
+  color: red
+}
+
+.save-btn {
+  padding: 5px 80px!important;
+}
+
+.mini-btn {
+  padding: 3px 12px!important;
+}
