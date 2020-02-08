@@ -6,13 +6,15 @@ Vue.use(Router)
 
 import intercomRoutes from './modules/intercom'
 import dataRoutes from './modules/data'
+import locationRoutes from './modules/location'
+import notificationRoutes from './modules/notification'
 
 export const mainRoutes = [
   {
     path: '/test',
     name: 'Test',
     component: Layout
-  },
+  }
 ]
 
 const createRouter = () => new Router({
@@ -33,7 +35,9 @@ const createRouter = () => new Router({
     },
     ...mainRoutes,
     ...intercomRoutes,
-    ...dataRoutes
+    ...dataRoutes,
+    ...locationRoutes,
+    ...notificationRoutes
   ]
 })
 

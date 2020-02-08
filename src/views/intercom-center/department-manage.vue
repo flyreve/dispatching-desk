@@ -6,72 +6,74 @@
         <span class="fz-16">全部人员</span>
       </div>
       <el-input
+        v-model="searchKey"
         placeholder="搜索"
         size="mini"
-        v-model="searchKey">
-        <i slot="prefix" class="el-input__icon el-icon-search"></i>
+      >
+        <i slot="prefix" class="el-input__icon el-icon-search" />
       </el-input>
       <div class="filter">
         <el-button round size="mini" :type="visitAll ? 'primary' : ''" @click="visitAll = true">全部</el-button>
-        <el-divider direction="vertical"></el-divider>
+        <el-divider direction="vertical" />
         <el-button round :type="!visitAll ? 'primary' : ''" @click="visitAll = false">按部门显示</el-button>
       </div>
-      <div class="person-list" v-if="visitAll">
+      <div v-if="visitAll" class="person-list">
         <el-checkbox-group v-model="checkedPerson" @change="handleCheckedChange">
-          <div class="person-item" v-for="(person, index) in members" :key="index + '123'">
+          <div v-for="(person, index) in members" :key="index + '123'" class="person-item">
             <div class="flex">
-              <el-checkbox class="inlineBlock"></el-checkbox>
-              <i class="el-icon-user fz-16" style="margin-left: 5px"></i>
+              <el-checkbox class="inlineBlock" />
+              <i class="el-icon-user fz-16" style="margin-left: 5px" />
               <div>（备注名/账号）</div>
             </div>
             <div class="flex">
-              <i class="el-icon-chat-line-round pointer fz-14 pl-5"></i>
-              <i class="el-icon-setting pointer fz-14 pl-5" @click="visibleMember = true"></i>
-              <i class="el-icon-video-camera pointer fz-14 pl-5"></i>
+              <i class="el-icon-chat-line-round pointer fz-14 pl-5" />
+              <i class="el-icon-setting pointer fz-14 pl-5" @click="visibleMember = true" />
+              <i class="el-icon-video-camera pointer fz-14 pl-5" />
             </div>
           </div>
         </el-checkbox-group>
       </div>
       <el-tree
-              v-else
-              class="person-list"
-              :data="data"
-              show-checkbox
-              node-key="id"
-              default-expand-all
-              :expand-on-click-node="false">
-        <div style="width: 100%" slot-scope="{ node, data }">
-          <div class="flex"  v-if="!data.hasOwnProperty('name')" style="width: 100%">
+        v-else
+        class="person-list"
+        :data="data"
+        show-checkbox
+        node-key="id"
+        default-expand-all
+        :expand-on-click-node="false"
+      >
+        <div slot-scope="{ node, data }" style="width: 100%">
+          <div v-if="!data.hasOwnProperty('name')" class="flex" style="width: 100%">
             <div>{{ node.label }}</div>
             <div>
               <el-link @click="visibleAdd = true">
-                <i class="el-icon-plus"></i>
+                <i class="el-icon-plus" />
               </el-link>
               <el-link @click="visibleEdit = true">
-                <i class="el-icon-edit"></i>
+                <i class="el-icon-edit" />
               </el-link>
               <el-link @click="visibleSort = true">
-                <i class="el-icon-sort"></i>
+                <i class="el-icon-sort" />
               </el-link>
             </div>
           </div>
           <div v-else class="person-item" style="border-bottom: unset; padding-left: 0">
             <div class="flex">
-              <i class="el-icon-user fz-16" style="margin-left: 5px"></i>
+              <i class="el-icon-user fz-16" style="margin-left: 5px" />
               <div>（备注名/账号）</div>
             </div>
             <div class="flex">
-              <i class="el-icon-chat-line-round pointer fz-14 pl-5"></i>
-              <i class="el-icon-setting pointer fz-14 pl-5" @click="visibleMember = true"></i>
-              <i class="el-icon-video-camera pointer fz-14 pl-5"></i>
+              <i class="el-icon-chat-line-round pointer fz-14 pl-5" />
+              <i class="el-icon-setting pointer fz-14 pl-5" @click="visibleMember = true" />
+              <i class="el-icon-video-camera pointer fz-14 pl-5" />
             </div>
           </div>
         </div>
       </el-tree>
-      <div style="margin: 15px 0;"></div>
+      <div style="margin: 15px 0;" />
       <div class="flex">
-        <el-checkbox :indeterminate="isIndeterminate" v-model="checkAll" @change="handleCheckAllChange">全选</el-checkbox>
-        共选择{{checkedPerson.length}}人
+        <el-checkbox v-model="checkAll" :indeterminate="isIndeterminate" @change="handleCheckAllChange">全选</el-checkbox>
+        共选择{{ checkedPerson.length }}人
       </div>
       <div align="center" class="flex" style="justify-content: space-around">
         <el-button v-if="!visitAll" round style="padding: 5px 8px" @click="visibleMove = true">移动成员</el-button>
@@ -80,11 +82,11 @@
       </div>
     </el-card>
 
-<!--    编辑人员-->
-    <el-card class="dialog-2-card" v-if="visibleMember">
+    <!--    编辑人员-->
+    <el-card v-if="visibleMember" class="dialog-2-card">
       <div slot="header">
         <span class="fz-16">用户资料</span>
-        <el-button class="close-btn" type="text" @click="visibleMember = false"><i class="el-icon-close"></i></el-button>
+        <el-button class="close-btn" type="text" @click="visibleMember = false"><i class="el-icon-close" /></el-button>
       </div>
       <div class="flex">
         <span>用户账号</span>
@@ -92,13 +94,13 @@
       </div>
       <el-form style="margin-top: 10px">
         <el-form-item>
-          <el-input placeholder="备注名"></el-input>
+          <el-input placeholder="备注名" />
         </el-form-item>
         <el-form-item>
-          <el-input placeholder="手机号"></el-input>
+          <el-input placeholder="手机号" />
         </el-form-item>
         <el-form-item>
-          <el-input placeholder="邮箱"></el-input>
+          <el-input placeholder="邮箱" />
         </el-form-item>
       </el-form>
       <div align="center">
@@ -106,21 +108,22 @@
       </div>
     </el-card>
 
-<!--    选择成员-->
-    <el-card class="main-1-card dialog-2-card" v-if="visibleMove">
+    <!--    选择成员-->
+    <el-card v-if="visibleMove" class="main-1-card dialog-2-card">
       <div slot="header">
         <span class="fz-16">移动成员</span>
-        <el-button class="close-btn" type="text" @click="visibleMove = false"><i class="el-icon-close"></i></el-button>
+        <el-button class="close-btn" type="text" @click="visibleMove = false"><i class="el-icon-close" /></el-button>
       </div>
       <div class="remarks">选择组织成员</div>
       <el-tree
-              class="person-list pt-5"
-              style="height: calc(100% - 71px);"
-              :data="data"
-              node-key="id"
-              default-expand-all
-              :expand-on-click-node="false">
-        <div style="width: 100%" slot-scope="{ node, data }">
+        class="person-list pt-5"
+        style="height: calc(100% - 71px);"
+        :data="data"
+        node-key="id"
+        default-expand-all
+        :expand-on-click-node="false"
+      >
+        <div slot-scope="{ node, data }" style="width: 100%">
           <div class="flex" style="width: 100%">
             <div>{{ node.label }}</div>
           </div>
@@ -131,41 +134,41 @@
       </div>
     </el-card>
 
-<!--    创建下级部门-->
-    <el-card class="dialog-2-card" v-if="visibleAdd">
+    <!--    创建下级部门-->
+    <el-card v-if="visibleAdd" class="dialog-2-card">
       <div slot="header">
         <span class="fz-16">创建下级部门</span>
-        <el-button class="close-btn" type="text" @click="visibleAdd = false"><i class="el-icon-close"></i></el-button>
+        <el-button class="close-btn" type="text" @click="visibleAdd = false"><i class="el-icon-close" /></el-button>
       </div>
-      <el-input placeholder="输入名称"></el-input>
+      <el-input placeholder="输入名称" />
       <div align="center" class="mt-5">
         <el-button type="primary" round style="padding: 5px 80px">保存</el-button>
       </div>
     </el-card>
 
     <!--    编辑部门名称-->
-    <el-card class="dialog-2-card" v-if="visibleEdit">
+    <el-card v-if="visibleEdit" class="dialog-2-card">
       <div slot="header">
         <span class="fz-16">编辑部门名称</span>
-        <el-button class="close-btn" type="text" @click="visibleEdit = false"><i class="el-icon-close"></i></el-button>
-        <el-button class="close-btn fz-14" type="text"><i class="el-icon-delete"></i></el-button>
+        <el-button class="close-btn" type="text" @click="visibleEdit = false"><i class="el-icon-close" /></el-button>
+        <el-button class="close-btn fz-14" type="text"><i class="el-icon-delete" /></el-button>
       </div>
-      <el-input placeholder="输入名称"></el-input>
+      <el-input placeholder="输入名称" />
       <div align="center" class="mt-5">
         <el-button type="primary" round style="padding: 5px 80px">保存</el-button>
       </div>
     </el-card>
 
     <!--    排序-->
-    <el-card class="dialog-2-card" v-if="visibleSort">
+    <el-card v-if="visibleSort" class="dialog-2-card">
       <div slot="header">
         <span class="fz-16">拖动调整下级部门排序</span>
-        <el-button class="close-btn" type="text" @click="visibleSort = false"><i class="el-icon-close"></i></el-button>
+        <el-button class="close-btn" type="text" @click="visibleSort = false"><i class="el-icon-close" /></el-button>
       </div>
       <div class="sort-list">
-        <div class="sort-item flex" v-for="i in 3" :key="i">
-          <span>组织{{i}}</span>
-          <el-button type="text" size="large"><i class="el-icon-s-operation"></i></el-button>
+        <div v-for="i in 3" :key="i" class="sort-item flex">
+          <span>组织{{ i }}</span>
+          <el-button type="text" size="large"><i class="el-icon-s-operation" /></el-button>
         </div>
       </div>
       <div align="center" class="mt-10">
@@ -173,81 +176,80 @@
       </div>
     </el-card>
 
-
   </div>
 </template>
 
 <script>
-  export default {
-    name: 'department-manage',
-    data() {
-      const personOptions = ['1', '2', '3', '4'];
-      const data = [{
-        id: 1,
-        label: '测试组 1',
+export default {
+  name: 'DepartmentManage',
+  data() {
+    const personOptions = ['1', '2', '3', '4']
+    const data = [{
+      id: 1,
+      label: '测试组 1',
+      children: [{
+        id: 4,
+        label: '测试组 1-1',
         children: [{
-          id: 4,
-          label: '测试组 1-1',
-          children: [{
-            name: '1',
-            id: 9,
-            label: '测试组 1-1-1'
-          }, {
-            name: '2',
-            id: 10,
-            label: '测试组 1-1-2'
-          }]
-        }]
-      }, {
-        id: 2,
-        label: '测试组 2',
-        children: [{
-          id: 5,
-          label: '测试组 2-1'
+          name: '1',
+          id: 9,
+          label: '测试组 1-1-1'
         }, {
-          id: 6,
-          label: '测试组 2-2'
+          name: '2',
+          id: 10,
+          label: '测试组 1-1-2'
         }]
+      }]
+    }, {
+      id: 2,
+      label: '测试组 2',
+      children: [{
+        id: 5,
+        label: '测试组 2-1'
       }, {
-        id: 3,
-        label: '测试组 3',
-        children: [{
-          id: 7,
-          label: '测试组 3-1'
-        }, {
-          id: 8,
-          label: '测试组 3-2'
-        }]
-      }];
-      return {
-        searchKey: '',
-        checkAll: false,
-        visibleMember: false,
-        visibleMove: false,
-        visibleAdd: false,
-        visibleEdit: false,
-        visibleSort: false,
-        visitAll: true,
-        data: JSON.parse(JSON.stringify(data)),
-        checkedPerson: ['1', '2'],
-        members: personOptions,
-        isIndeterminate: true
-      }
+        id: 6,
+        label: '测试组 2-2'
+      }]
+    }, {
+      id: 3,
+      label: '测试组 3',
+      children: [{
+        id: 7,
+        label: '测试组 3-1'
+      }, {
+        id: 8,
+        label: '测试组 3-2'
+      }]
+    }]
+    return {
+      searchKey: '',
+      visibleMember: false,
+      visibleMove: false,
+      visibleAdd: false,
+      visibleEdit: false,
+      visibleSort: false,
+      visitAll: true,
+      data: JSON.parse(JSON.stringify(data)),
+      checkedPerson: ['1', '2'],
+      members: personOptions,
+      checkAll: false,
+      isIndeterminate: true
+    }
+  },
+  mounted() {
+  },
+  methods: {
+    handleCheckAllChange(val) {
+      this.checkedPerson = val ? this.members : []
+      this.isIndeterminate = false
     },
-    mounted() {
-    },
-    methods: {
-      handleCheckAllChange(val) {
-        this.checkedPerson = val ? personOptions : [];
-        this.isIndeterminate = false;
-      },
-      handleCheckedChange(value) {
-        let checkedCount = value.length;
-        this.checkAll = checkedCount === this.members.length;
-        this.isIndeterminate = checkedCount > 0 && checkedCount < this.members.length;
-      }
+    handleCheckedChange(value) {
+      let checkedCount = value.length
+      this.checkAll = checkedCount === this.members.length
+      this.isIndeterminate = checkedCount > 0 && checkedCount < this.members.length
     }
   }
+}
 </script>
 
 <style lang="scss">
@@ -278,7 +280,7 @@
     .person-item {
       display: flex;
       justify-content: space-between;
-      padding: 10px 3px;
+      padding: 10px 5px 10px 3px;
       border-bottom: 1px solid #D0CECE;
     }
   }

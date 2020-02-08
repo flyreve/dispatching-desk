@@ -1,14 +1,15 @@
+<!--component: 顶部菜单-->
 <template>
   <div class="components-menu">
-    <div class="menu-item" :class="activeMenu === item.name ? 'menu-active' : ''" v-for="(item, index) in menuList" :key="index + 'm'" @click="handleChangeMenu(item)">
+    <div v-for="(item, index) in menuList" :key="index + 'm'" class="menu-item" :class="activeMenu === item.name ? 'menu-active' : ''" @click="handleChangeMenu(item)">
       <div class="wrap">
-        <div class="icon"><i :class="item.icon"></i></div>
+        <div class="icon"><i :class="item.icon" /></div>
         <div class="name">{{ item.name }}</div>
       </div>
     </div>
     <div class="menu-item">
       <div class="wrap">
-        <div class="icon"><i class="el-icon-more"></i></div>
+        <div class="icon"><i class="el-icon-more" /></div>
         <div class="name">添加</div>
       </div>
     </div>
@@ -16,56 +17,59 @@
 </template>
 
 <script>
-  import intercomRoutes from '@/router/modules/intercom'
-  import dataRoutes from '@/router/modules/data'
-  export default {
-    name: 'SideMenu',
-    data() {
-      return {
-        menuList: [
-          {
-            icon: 'el-icon-s-help',
-            name: '数据中心',
-            routers: dataRoutes
-          },  {
-            icon: 'el-icon-s-help',
-            name: '任务管理',
-            routers: []
-          },  {
-            icon: 'el-icon-s-help',
-            name: '告警中心',
-            routers: []
-          },  {
-            icon: 'el-icon-s-help',
-            name: '通知中心',
-            routers: []
-          },  {
-            icon: 'el-icon-s-help',
-            name: '位置管理',
-            routers: []
-          },  {
-            icon: 'el-icon-s-help',
-            name: '和对讲',
-            routers: intercomRoutes
-          },
+import intercomRoutes from '@/router/modules/intercom'
+import dataRoutes from '@/router/modules/data'
+import locationRoutes from '@/router/modules/location'
+import notificationRoutes from '@/router/modules/notification'
+export default {
+  name: 'SideMenu',
+  data() {
+    return {
+      menuList: [
+        {
+          icon: 'el-icon-s-help',
+          name: '数据中心',
+          routers: dataRoutes
+        }, {
+          icon: 'el-icon-s-help',
+          name: '任务管理',
+          routers: []
+        }, {
+          icon: 'el-icon-s-help',
+          name: '告警中心',
+          routers: []
+        }, {
+          icon: 'el-icon-s-help',
+          name: '通知中心',
+          routers: notificationRoutes
+        }, {
+          icon: 'el-icon-s-help',
+          name: '位置管理',
+          routers: locationRoutes
+        }, {
+          icon: 'el-icon-s-help',
+          name: '和对讲',
+          routers: intercomRoutes
+        }
 
-        ]
-      }
-    },
-    computed: {
-      activeMenu() {
-        return this.$store.state.currentActiveMenu
-      }
-    },
-    mounted() {
-    },
-    methods: {
-      handleChangeMenu(menu) {
-        this.$store.dispatch('setMenu', menu.name)
-        this.$store.dispatch('setSideRouters', menu.routers)
-      }
+      ]
+    }
+  },
+  computed: {
+    activeMenu() {
+      return this.$store.state.currentActiveMenu
+    }
+  },
+  mounted() {
+  },
+  methods: {
+    handleChangeMenu(menu) {
+      this.$store.dispatch('setMenu', menu.name)
+      this.$store.dispatch('setSideRouters', menu.routers)
+      this.$router.push({ name: menu.routers[0].children[0].name })
     }
   }
+}
 </script>
 
 <style scoped lang="scss">
@@ -73,11 +77,11 @@
     background: rgba(34,68,102,.95);
     height: 60px;
     box-shadow:0px 2px 2px #333333;
-    /*position: absolute;*/
-    /*top: 0;*/
-    /*left: 0;*/
-    /*right: 0;*/
-    /*z-index: 9;*/
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9;
     display: flex;
     .menu-item {
       height: 100%;
@@ -102,7 +106,7 @@
         font-size: 28px;
       }
       .name {
-        font-size: 12px;
+        font-size: 10px;
       }
     }
     .menu-active:before {

@@ -1,19 +1,21 @@
 <template>
-  <div class="analysis-container">
-    分析
+  <div class="analysis-container width-page">
+    <h3>分析</h3>
   </div>
 </template>
 
 <script>
-  export default {
-    name: 'analysis',
-    data() {
-      return {}
-    },
-    mounted() {
-    },
-    methods: {}
-  }
+export default {
+  name: 'Analysis',
+  data() {
+    return {}
+  },
+  mounted() {
+  },
+  methods: {}
+}
 </script>
 
-<style scoped></style>
+<style scoped lang="scss">
+  .analysis-container {}
+</style>

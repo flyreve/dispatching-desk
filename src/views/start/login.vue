@@ -1,17 +1,17 @@
 <template>
   <div class="login-container app-container">
     <start-layout>
-      <div class="form-box" slot="content">
+      <div slot="content" class="form-box">
         <div class="box-header">登录系统</div>
         <el-form label-width="57px" class="box-form">
           <el-form-item label="账号">
-            <el-input v-model="loginForm.name" placeholder="请输入用户名"></el-input>
+            <el-input v-model="loginForm.name" placeholder="请输入用户名" />
           </el-form-item>
           <el-form-item label="密码">
-            <el-input type="password" v-model="loginForm.password" placeholder="请输入密码"></el-input>
+            <el-input v-model="loginForm.password" type="password" placeholder="请输入密码" />
           </el-form-item>
           <el-form-item label="验证码">
-            <el-input v-model="loginForm.code" style="width: 60%"></el-input>
+            <el-input v-model="loginForm.code" placeholder="验证码" style="width: 60%" />
             <div class="inlineBlock code pointer">123</div>
           </el-form-item>
           <div style="overflow: hidden; margin-bottom: 10px">
@@ -26,29 +26,29 @@
 </template>
 
 <script>
-  import StartLayout from './component/StartLayout'
-  export default {
-    name: 'Login',
-    components: { StartLayout },
-    data() {
-      return {
-        remember: '',
-        loginForm: {
-          name: '',
-          password: '',
-          code: ''
-        }
-      }
-    },
-    mounted() {
-      console.log(this.$router)
-    },
-    methods: {
-      handleLogin() {
-        this.$router.push({ name: 'SystemicSelection' })
+import StartLayout from './component/StartLayout'
+export default {
+  name: 'Login',
+  components: { StartLayout },
+  data() {
+    return {
+      remember: '',
+      loginForm: {
+        name: '',
+        password: '',
+        code: ''
       }
     }
+  },
+  mounted() {
+    console.log(this.$router)
+  },
+  methods: {
+    handleLogin() {
+      this.$router.push({ name: 'SystemicSelection' })
+    }
   }
+}
 </script>
 
 <style lang="scss">
@@ -72,7 +72,7 @@
       transform: translateY(-50%);
       &:before {
         content: "";
-        background-image: linear-gradient(rgba(255,255,255, .9), rgba(255,255,255, 0));
+        background-image: linear-gradient(rgba(255,255,255, .3), rgba(255,255,255, 0));
         border-radius: 10px;
         position: absolute;
         height: 80px;

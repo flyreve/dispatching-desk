@@ -1,11 +1,11 @@
 <template>
   <div class="systemic-selection app-container">
     <start-layout>
-      <div class="header-left pointer" slot="header-left" @click="handlePushRouter('Login')">
+      <div slot="header-left" class="header-left pointer" @click="handlePushRouter('Login')">
         <el-button type="primary" round icon="el-icon-back" style="padding: 0 10px; font-size: 20px" />
         <span style="font-size: 20px; margin-left: 10px">返回</span>
       </div>
-      <div class="systemic-content" slot="content">
+      <div slot="content" class="systemic-content">
         <div class="box-item" @click="handlePushRouter('Test')">卡控履职</div>
         <div class="box-item" @click="handlePushRouter('department-manage')">作业监控</div>
       </div>
@@ -14,21 +14,21 @@
 </template>
 
 <script>
-  import StartLayout from './component/StartLayout'
-  export default {
-    name: 'SystemicSelection',
-    components: { StartLayout },
-    data() {
-      return {}
-    },
-    mounted() {
-    },
-    methods: {
-      handlePushRouter(name) {
-        this.$router.push({ name })
-      }
+import StartLayout from './component/StartLayout'
+export default {
+  name: 'SystemicSelection',
+  components: { StartLayout },
+  data() {
+    return {}
+  },
+  mounted() {
+  },
+  methods: {
+    handlePushRouter(name) {
+      this.$router.push({ name })
     }
   }
+}
 </script>
 
 <style scoped lang="scss">
@@ -61,12 +61,12 @@
        cursor: pointer;
        &:before {
          content: "";
-         background-image: linear-gradient(rgba(255,255,255, .9), rgba(255,255,255, 0));
+         background-image: linear-gradient(rgba(255,255,255, .3), rgba(255,255,255, 0));
          border-radius: 10px;
          position: absolute;
-         height: 50px;
+         height: 40px;
          width: 100%;
-         bottom: -55px;
+         bottom: -43px;
          left: 0px;
        }
      }

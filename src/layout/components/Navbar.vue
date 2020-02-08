@@ -1,30 +1,31 @@
+<!--component: 导航条-->
 <template>
   <div class="components-navbar">
     <div class="left">
-      <div class="circular"></div>
-      <div class="strip"></div>
+      <div class="circular" />
+      <div class="strip" />
     </div>
     <div class="right">
       <div class="right-item avatar-item">
-        <el-avatar shape="circle" size="medium" :src="squareUrl"></el-avatar>
+        <el-avatar shape="circle" size="medium" :src="squareUrl" />
         <div class="inlineBlock" align="left" style="margin-left: 10px">
           <span>10011001</span><br>
-          <span><i class="el-icon-check status-on"></i>在线</span>
+          <span><i class="el-icon-check status-on" />在线</span>
         </div>
       </div>
-      <el-divider direction="vertical"></el-divider>
+      <el-divider direction="vertical" />
       <div class="right-item">
-       <i class="el-icon-eleme"></i><br>
+        <i class="el-icon-eleme" /><br>
         地图管理
       </div>
-      <el-divider direction="vertical"></el-divider>
+      <el-divider direction="vertical" />
       <div class="right-item">
-       <i class="el-icon-eleme"></i><br>
+        <i class="el-icon-eleme" /><br>
         设置
       </div>
-      <el-divider direction="vertical"></el-divider>
+      <el-divider direction="vertical" />
       <div class="right-item" @click="handleLoginOut">
-        <i class="el-icon-eleme"></i><br>
+        <i class="el-icon-eleme" /><br>
         退出
       </div>
     </div>
@@ -32,21 +33,21 @@
 </template>
 
 <script>
-  export default {
-    name: 'Navbar',
-    data() {
-      return {
-        squareUrl: "https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png",
-      }
-    },
-    mounted() {
-    },
-    methods: {
-      handleLoginOut() {
-        this.$router.push({ name: 'Login'})
-      }
+export default {
+  name: 'Navbar',
+  data() {
+    return {
+      squareUrl: 'https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png'
+    }
+  },
+  mounted() {
+  },
+  methods: {
+    handleLoginOut() {
+      this.$router.push({ name: 'Login' })
     }
   }
+}
 </script>
 
 <style lang="scss">

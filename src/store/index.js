@@ -10,8 +10,10 @@ const vuexLocal = new VuexPersistence({
 
 const store = new Vuex.Store({
   state: {
+    // 头部菜单
     currentActiveMenu: '和对讲',
-    sideRouters: [],
+    // 当前菜单对应路由
+    sideRouters: []
   },
 
   mutations: {
@@ -20,14 +22,14 @@ const store = new Vuex.Store({
     },
     SET_SIDE_ROUTERS(state, routers) {
       state.sideRouters = routers
-    },
+    }
 
   },
   actions: {
-    setMenu({commit}, menu) {
+    setMenu({ commit }, menu) {
       commit('SET_CURRENT_MENU', menu)
     },
-    setSideRouters({commit}, routers) {
+    setSideRouters({ commit }, routers) {
       commit('SET_SIDE_ROUTERS', routers)
     }
   },

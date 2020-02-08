@@ -3,6 +3,8 @@
 ## Project setup
 ```
 npm install
+// 或
+npm install --registry=https://registry.npm.taobao.org
 ```
 
 ### Compiles and hot-reloads for development

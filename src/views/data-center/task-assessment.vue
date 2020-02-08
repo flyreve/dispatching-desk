@@ -5,15 +5,15 @@
 </template>
 
 <script>
-  export default {
-    name: 'task-assessment',
-    data() {
-      return {}
-    },
-    mounted() {
-    },
-    methods: {}
-  }
+export default {
+  name: 'TaskAssessment',
+  data() {
+    return {}
+  },
+  mounted() {
+  },
+  methods: {}
+}
 </script>
 
 <style scoped></style>
