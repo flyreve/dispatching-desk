@@ -41,12 +41,14 @@
       <div class="card-header flex">
         <div class="left flex fz-10"><div class="circular" />成员一</div>
         <el-divider direction="vertical" />
-        <div class="content flex fz-10">
+        <div class="content flex fz-10" style="justify-content: space-around">
           <div class="flex">
-            时间范围: <el-input style="width: 33px" v-model="searchKey"></el-input>个月之内
+            <span class="text-omit">时间范围: </span>
+            <el-input style="width: 33px" v-model="searchKey"></el-input>
+            <span class="text-omit">个月之内</span>
           </div>
           <div class="flex">
-            起止时间
+            <span class="text-omit">起止时间</span>
             <el-date-picker
                     v-model="value1"
                     type="date"
@@ -60,7 +62,7 @@
             </el-date-picker>
           </div>
           <div class="flex">
-            查询
+            <span class="text-omit">查询</span>
             <el-input style="width: 45px"  v-model="searchKey">
               <i slot="prefix" class="el-input__icon el-icon-search" />
             </el-input>

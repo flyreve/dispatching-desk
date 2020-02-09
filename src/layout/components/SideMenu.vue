@@ -67,11 +67,11 @@ export default {
     init() {
       let menu = this.menuList.find(i => i.name === this.activeMenu )
       this.$store.dispatch('setSideRouters', menu.routers)
-      this.$router.push({ name: menu.routers[0].children[0].name })
     },
     handleChangeMenu(menu) {
       this.$store.dispatch('setMenu', menu.name)
       this.init()
+      this.$router.push({ name: menu.routers[0].children[0].name })
     }
   }
 }
