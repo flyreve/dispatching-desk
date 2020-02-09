@@ -13,10 +13,10 @@
         <i slot="prefix" class="el-input__icon el-icon-search" />
       </el-input>
       <div class="flex mt-5">
-        <div class="flex">
-          <el-link @click="visibleMemberAdd = true"><i class="el-icon-plus" /></el-link>
+        <el-link :underline="false" class="flex" @click="visibleMemberAdd = true">
+          <i class="el-icon-plus" />
           <span class="pl-5 fz-14">添加成员</span>
-        </div>
+        </el-link>
         <div class="flex">
           <span class="remarks">在地图显示</span>
           <el-switch
@@ -55,7 +55,7 @@
     </el-card>
 
 <!--    添加监控成员-->
-    <el-card class="main-2-card">
+    <el-card class="main-2-card" v-if="visibleMemberAdd">
       <div slot="header">
         <span class="fz-16">添加监控成员</span>
         <el-button class="close-btn" type="text" @click="visibleMemberAdd = false"><i class="el-icon-close" /></el-button>
