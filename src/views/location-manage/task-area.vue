@@ -26,7 +26,9 @@
   export default {
     name: 'task-area',
     data() {
-      return {}
+      return {
+        searchKey: ''
+      }
     },
     mounted() {
     },

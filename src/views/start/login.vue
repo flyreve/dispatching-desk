@@ -40,9 +40,7 @@ export default {
       }
     }
   },
-  mounted() {
-    console.log(this.$router)
-  },
+  mounted() {},
   methods: {
     handleLogin() {
       this.$router.push({ name: 'SystemicSelection' })
