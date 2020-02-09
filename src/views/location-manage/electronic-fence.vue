@@ -24,7 +24,7 @@
     </el-card>
 
 <!--    选择围栏-->
-    <el-card class="dialog-2-card" v-if="visibleInfo">
+    <el-card class="dialog-2-card dialog" v-if="visibleInfo">
       <div slot="header">
         <span class="fz-16">xxxxx（电子围栏名称）</span>
         <el-button class="close-btn" type="text" @click="visibleInfo = false"><i class="el-icon-close" /></el-button>
@@ -61,14 +61,14 @@
         <el-button plain round type="primary" class="form-btn">添加成员</el-button>
         <el-button plain round type="danger" class="form-btn">删除围栏</el-button>
       </div>
-      <div class="flex mt-10" style="justify-content: space-around">
+      <div class="flex" style="justify-content: space-around; margin-top: 20px">
         <el-button>保存</el-button>
         <el-button>告警记录</el-button>
       </div>
     </el-card>
 
 <!--    创建围栏-->
-    <el-card class="main-2-card" v-if="visibleAdd">
+    <el-card class="main-2-card dialog" v-if="visibleAdd">
       <div slot="header">
         <span class="fz-16">创建电子围栏</span>
         <el-button class="close-btn" type="text" @click="visibleAdd = false"><i class="el-icon-close" /></el-button>
@@ -146,33 +146,35 @@
 
 <style lang="scss">
   .electronic-fence {
-    .el-form-item {
-      margin-bottom: 3px !important;
-    }
-    .el-input__inner {
-      font-size: 10px!important;
-      /*width: 25px!important;*/
-      height: 19px !important;
-      line-height: 19px!important;
-      padding: 1px!important;
-    }
-    .el-input__icon {
-      line-height: 20px;
-    }
-    .el-form-item__label {
-      font-size: 12px !important;
-    }
-    .el-input--suffix .el-input__inner {
-      padding-left: 17px!important;
-    }
-    .el-input--prefix .el-input__inner {
-      padding-left: 17px!important;
-    }
-    .el-input__prefix {
-      left: -3px!important;
-    }
-    .el-input {
-      margin: 0 5px;
+    .dialog {
+      .el-form-item {
+        margin-bottom: 3px !important;
+      }
+      .el-input__inner {
+        font-size: 10px!important;
+        /*width: 25px!important;*/
+        height: 19px !important;
+        line-height: 19px!important;
+        padding: 1px!important;
+      }
+      .el-input__icon {
+        line-height: 20px;
+      }
+      .el-form-item__label {
+        font-size: 12px !important;
+      }
+      .el-input--suffix .el-input__inner {
+        padding-left: 17px!important;
+      }
+      .el-input--prefix .el-input__inner {
+        padding-left: 17px!important;
+      }
+      .el-input__prefix {
+        left: -3px!important;
+      }
+      .el-input {
+        margin: 0 5px;
+      }
     }
   }
 </style>
