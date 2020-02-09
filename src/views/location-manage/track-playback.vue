@@ -43,7 +43,7 @@
         <el-divider direction="vertical" />
         <div class="content flex fz-10">
           <div class="flex">
-            时间范围: <el-input style="width: 33px"></el-input>个月之内
+            时间范围: <el-input style="width: 33px" v-model="searchKey"></el-input>个月之内
           </div>
           <div class="flex">
             起止时间
@@ -74,7 +74,6 @@
         </div>
       </div>
       <div class="card-body">
-        1
       </div>
     </el-card>
   </div>
@@ -154,7 +153,16 @@
         padding: 1px!important;
       }
       .el-input__icon {
-        line-height: 22px;
+        line-height: 20px;
+      }
+      .el-input--suffix .el-input__inner {
+        padding-left: 17px!important;
+      }
+      .el-input--prefix .el-input__inner {
+        padding-left: 17px!important;
+      }
+      .el-input__prefix {
+        left: -3px!important;
       }
       .el-input {
         margin: 0 5px;
