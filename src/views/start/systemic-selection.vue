@@ -6,7 +6,7 @@
         <span style="font-size: 20px; margin-left: 10px">返回</span>
       </div>
       <div slot="content" class="systemic-content">
-        <div class="box-item" @click="handlePushRouter('Test')">卡控履职</div>
+        <div class="box-item" @click="handlePushRouter('department-manage')">卡控履职</div>
         <div class="box-item" @click="handlePushRouter('department-manage')">作业监控</div>
       </div>
     </start-layout>
@@ -26,6 +26,7 @@ export default {
   methods: {
     handlePushRouter(name) {
       this.$router.push({ name })
+      this.$store.dispatch('initMenu')
     }
   }
 }
