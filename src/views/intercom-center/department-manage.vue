@@ -184,7 +184,8 @@ export default {
   name: 'DepartmentManage',
   data() {
     const personOptions = ['1', '2', '3', '4']
-    const data = [{
+    const data = [
+      {
       id: 1,
       label: '测试组 1',
       children: [{

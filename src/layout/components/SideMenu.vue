@@ -21,6 +21,7 @@ import intercomRoutes from '@/router/modules/intercom'
 import dataRoutes from '@/router/modules/data'
 import locationRoutes from '@/router/modules/location'
 import notificationRoutes from '@/router/modules/notification'
+import taskRoutes from '@/router/modules/task'
 export default {
   name: 'SideMenu',
   data() {
@@ -33,7 +34,7 @@ export default {
         }, {
           icon: 'el-icon-s-help',
           name: '任务管理',
-          routers: []
+          routers: taskRoutes
         }, {
           icon: 'el-icon-s-help',
           name: '告警中心',

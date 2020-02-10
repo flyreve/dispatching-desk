@@ -8,6 +8,7 @@ import intercomRoutes from './modules/intercom'
 import dataRoutes from './modules/data'
 import locationRoutes from './modules/location'
 import notificationRoutes from './modules/notification'
+import taskRoutes from './modules/task'
 
 export const mainRoutes = [
   {
@@ -37,7 +38,8 @@ const createRouter = () => new Router({
     ...intercomRoutes,
     ...dataRoutes,
     ...locationRoutes,
-    ...notificationRoutes
+    ...notificationRoutes,
+    ...taskRoutes
   ]
 })
 
