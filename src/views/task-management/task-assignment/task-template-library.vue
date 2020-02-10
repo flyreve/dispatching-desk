@@ -354,6 +354,9 @@
 
 <style lang="scss">
 .task-template-library {
+  .el-form-item {
+    margin-bottom: 0!important;
+  }
   .info-card .el-card__body {
     overflow-y: scroll;
     height: calc(100% - 66px)!important;

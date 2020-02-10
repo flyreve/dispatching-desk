@@ -99,6 +99,9 @@
 
 <style lang="scss">
   .create-temporary-task {
+    .el-form-item {
+      margin-bottom: 0!important;
+    }
     .el-form--label-top .el-form-item__label {
       padding: 0!important;
     }

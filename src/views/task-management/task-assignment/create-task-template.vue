@@ -94,6 +94,9 @@
 
 <style lang="scss">
   .create-task-template {
+    .el-form-item {
+      margin-bottom: 0!important;
+    }
     .el-form--label-top .el-form-item__label {
       padding: 0!important;
     }
