@@ -22,6 +22,7 @@ import dataRoutes from '@/router/modules/data'
 import locationRoutes from '@/router/modules/location'
 import notificationRoutes from '@/router/modules/notification'
 import taskRoutes from '@/router/modules/task'
+import alarmRoutes from '@/router/modules/alarm'
 export default {
   name: 'SideMenu',
   data() {
@@ -38,7 +39,7 @@ export default {
         }, {
           icon: 'el-icon-s-help',
           name: '告警中心',
-          routers: []
+          routers: alarmRoutes
         }, {
           icon: 'el-icon-s-help',
           name: '通知中心',

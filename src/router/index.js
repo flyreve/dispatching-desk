@@ -9,6 +9,7 @@ import dataRoutes from './modules/data'
 import locationRoutes from './modules/location'
 import notificationRoutes from './modules/notification'
 import taskRoutes from './modules/task'
+import alarmRoutes from './modules/alarm'
 
 export const mainRoutes = [
   {
@@ -39,7 +40,8 @@ const createRouter = () => new Router({
     ...dataRoutes,
     ...locationRoutes,
     ...notificationRoutes,
-    ...taskRoutes
+    ...taskRoutes,
+    ...alarmRoutes
   ]
 })
 
