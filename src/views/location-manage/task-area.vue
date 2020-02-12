@@ -18,7 +18,14 @@
           xxxxx（任务区域名称）
         </div>
       </div>
-      <div align="center">
+      <el-pagination
+              align="center"
+              class="mt-5"
+              small
+              layout="prev, pager, next"
+              :total="50">
+      </el-pagination>
+      <div align="center" class="mt-10">
         <el-button @click="visibleAdd = true">创建任务区域</el-button>
       </div>
     </el-card>
@@ -165,8 +172,8 @@
 <style scoped lang="scss">
   .task-area {
     .area-list {
-      height: calc(100% - 87px);
-      overflow-y: scroll;
+      height: calc(100% - 124px);
+      /*overflow-y: scroll;*/
       .area-item {
         cursor: pointer;
         display: flex;
