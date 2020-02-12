@@ -11,7 +11,7 @@
       style="background-color: rgba(34,68,102,0)"
     >
       <el-menu-item-group>
-        <sidebar-item v-for="route in sideRouters" :key="route.path" :item="route" :base-path="route.path" />
+        <sidebar-item v-for="route in sideMenuList" :key="route.path" :item="route" :base-path="route.path" />
       </el-menu-item-group>
     </el-menu>
   </div>
@@ -19,6 +19,8 @@
 
 <script>
 import SidebarItem from './SidebarItem'
+import { mapGetters } from 'vuex'
+
 export default {
   name: 'Sidebar',
   components: { SidebarItem },
@@ -26,9 +28,7 @@ export default {
     return {}
   },
   computed: {
-    sideRouters() {
-      return this.$store.state.sideRouters
-    },
+    ...mapGetters([ 'sideMenuList' ]),
 
     activeMenu() {
       const route = this.$route

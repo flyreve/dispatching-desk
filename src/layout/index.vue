@@ -5,10 +5,9 @@
     <div class="content">
       <!--百度地图-->
       <baidu-map :center="center" :zoom="zoom" :style="select" :scroll-wheel-zoom="true" @ready="map_handler" />
-      <side-menu />
-      <sidebar />
-
-      <div class="app-main">
+      <side-menu/>
+      <sidebar v-if="sidebarShow"/>
+      <div class="app-main" :class="{'has-side': sidebarShow}">
         <router-view />
       </div>
     </div>
@@ -19,6 +18,7 @@
 import Navbar from './components/Navbar'
 import SideMenu from './components/SideMenu'
 import Sidebar from './components/Sidebar/index'
+import { mapGetters } from 'vuex'
 export default {
   name: 'Index',
   components: {
@@ -35,6 +35,13 @@ export default {
       select: { width: '100%', height: '100%'},
       center: { lng: 112.547296, lat: 32.971788 },
       zoom: 12
+    }
+  },
+  computed: {
+    ...mapGetters([ 'sideMenuList' ]),
+
+    sidebarShow() {
+      return this.sideMenuList.length > 1
     }
   },
   mounted() {
@@ -100,15 +107,15 @@ export default {
       top: 60px;
       height: calc(100% - 60px);
       .app-main {
-        float: left;
         width: 1px;
-        /*height: calc(100% - 60px);*/
-        /*margin-left: ;*/
         position: absolute;
-        left: 150px;
+        left: 0;
         top: 60px;
         right: 0;
         bottom: 0;
+      }
+      .has-side {
+        left: 150px;
       }
     }
   }

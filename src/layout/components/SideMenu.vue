@@ -1,7 +1,7 @@
 <!--component: 顶部菜单-->
 <template>
   <div class="components-menu">
-    <div v-for="(item, index) in menuList" :key="index + 'm'" class="menu-item" :class="activeMenu === item.name ? 'menu-active' : ''" @click="handleChangeMenu(item)">
+    <div v-for="(item, index) in navMenuList" :key="index + 'm'" class="menu-item" :class="navMenuActive === item.name ? 'menu-active' : ''" @click="handleChangeMenu(item)">
       <div class="wrap">
         <div class="icon"><i :class="item.icon" /></div>
         <div class="name">{{ item.name }}</div>
@@ -17,63 +17,24 @@
 </template>
 
 <script>
-import intercomRoutes from '@/router/modules/intercom'
-import dataRoutes from '@/router/modules/data'
-import locationRoutes from '@/router/modules/location'
-import notificationRoutes from '@/router/modules/notification'
-import taskRoutes from '@/router/modules/task'
-import alarmRoutes from '@/router/modules/alarm'
+import { mapActions, mapGetters } from 'vuex'
+
 export default {
   name: 'SideMenu',
   data() {
-    return {
-      menuList: [
-        {
-          icon: 'el-icon-s-help',
-          name: '数据中心',
-          routers: dataRoutes
-        }, {
-          icon: 'el-icon-s-help',
-          name: '任务管理',
-          routers: taskRoutes
-        }, {
-          icon: 'el-icon-s-help',
-          name: '告警中心',
-          routers: alarmRoutes
-        }, {
-          icon: 'el-icon-s-help',
-          name: '通知中心',
-          routers: notificationRoutes
-        }, {
-          icon: 'el-icon-s-help',
-          name: '位置管理',
-          routers: locationRoutes
-        }, {
-          icon: 'el-icon-s-help',
-          name: '和对讲',
-          routers: intercomRoutes
-        }
-
-      ]
-    }
+    return {}
   },
   computed: {
-    activeMenu() {
-      return this.$store.state.currentActiveMenu
-    }
+    ...mapGetters([ 'navMenuList', 'navMenuActive', 'sideMenuList' ])
   },
   mounted() {
-    this.init()
+    this.$router.push({ name: this.sideMenuList[0].children[0].name })
   },
   methods: {
-    init() {
-      let menu = this.menuList.find(i => i.name === this.activeMenu )
-      this.$store.dispatch('setSideRouters', menu.routers)
-    },
+    ...mapActions('menu', ['setMenuActive']),
     handleChangeMenu(menu) {
-      this.$store.dispatch('setMenu', menu.name)
-      this.init()
-      this.$router.push({ name: menu.routers[0].children[0].name })
+      this.setMenuActive(menu.name)
+      this.$router.push({ name: this.sideMenuList[0].children[0].name })
     }
   }
 }

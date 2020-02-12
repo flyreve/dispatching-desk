@@ -6,8 +6,8 @@
         <span style="font-size: 20px; margin-left: 10px">返回</span>
       </div>
       <div slot="content" class="systemic-content">
-        <div class="box-item" @click="handlePushRouter('department-manage')">卡控履职</div>
-        <div class="box-item" @click="handlePushRouter('department-manage')">作业监控</div>
+        <div class="box-item" @click="handlePushRouter(0)">卡控履职</div>
+        <div class="box-item" @click="handlePushRouter(1)">作业监控</div>
       </div>
     </start-layout>
   </div>
@@ -15,18 +15,26 @@
 
 <script>
 import StartLayout from './component/StartLayout'
+import { mapActions } from 'vuex'
+
 export default {
   name: 'SystemicSelection',
   components: { StartLayout },
   data() {
     return {}
   },
-  mounted() {
-  },
+  mounted() {},
   methods: {
-    handlePushRouter(name) {
-      this.$router.push({ name })
-      this.$store.dispatch('initMenu')
+    ...mapActions('menu', ['setNavMenus', 'setMenuActive']),
+    handlePushRouter(type) {
+      this.setNavMenus(type)
+      if(type) {
+        this.setMenuActive('视频监控')
+        this.$router.push({ name: 'video-surveillance' })
+      } else {
+        this.setMenuActive('和对讲')
+        this.$router.push({ name: 'department-manage' })
+      }
     }
   }
 }

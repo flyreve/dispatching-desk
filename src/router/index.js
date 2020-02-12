@@ -10,14 +10,7 @@ import locationRoutes from './modules/location'
 import notificationRoutes from './modules/notification'
 import taskRoutes from './modules/task'
 import alarmRoutes from './modules/alarm'
-
-export const mainRoutes = [
-  {
-    path: '/test',
-    name: 'Test',
-    component: Layout
-  }
-]
+import surveillanceRoutes from './modules/surveillance'
 
 const createRouter = () => new Router({
   routes: [
@@ -35,13 +28,13 @@ const createRouter = () => new Router({
       name: 'SystemicSelection',
       component: () => import('@/views/start/systemic-selection')
     },
-    ...mainRoutes,
     ...intercomRoutes,
     ...dataRoutes,
     ...locationRoutes,
     ...notificationRoutes,
     ...taskRoutes,
-    ...alarmRoutes
+    ...alarmRoutes,
+    ...surveillanceRoutes
   ]
 })
 
