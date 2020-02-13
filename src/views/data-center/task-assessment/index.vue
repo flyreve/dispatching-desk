@@ -67,10 +67,15 @@
     <!--视图显示-->
     <div class="data-content" v-if="viewType === 0">
       <div class="video-box">
-        <div class="video-item" v-for="(i, j) in 20" :key="j + 'k'" @click="visibleInfo = true">
-          <i class="el-icon-video-play" style="font-size: 40px"></i>
-          <el-checkbox v-model="checked" class="ml-10 mt-10">通过：xxx上传</el-checkbox>
-          <div class="remarks">上传日期：10-10-2019</div>
+        <div class="video-item" v-for="(i, j) in 7" :key="j + 'k'" @click="visibleInfo = true">
+          <div>
+            <el-progress type="circle" :percentage="75"></el-progress>
+          </div>
+          <el-checkbox v-model="checked" class="ml-10 mt-10">行车安全</el-checkbox>
+          <div class="remarks">
+            <span>图片：66</span>
+            <span class="ml-10">视频：15</span>
+          </div>
         </div>
       </div>
       <el-pagination
@@ -889,6 +894,7 @@
     }
     .video-box {
       width: 100%;
+      overflow: hidden;
       .video-item {
         padding: 10px;
         text-align: center;

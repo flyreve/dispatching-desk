@@ -86,6 +86,7 @@ export default {
   data() {
     const personOptions = ['1', '2', '3', '4']
     return {
+      visitAll: true,
       value: '',
       checked: '',
       searchKey: '',

@@ -68,7 +68,7 @@
     <div class="data-content" v-if="viewType === 0">
       <div class="video-box">
         <div class="video-item" v-for="(i, j) in 20" :key="j + 'k'" @click="visibleInfo = true">
-          <i class="el-icon-video-play" style="font-size: 40px"></i>
+          <div><i class="el-icon-video-play" style="font-size: 40px"></i></div>
           <el-checkbox v-model="checked" class="ml-10 mt-10">通过：xxx上传</el-checkbox>
           <div class="remarks">上传日期：10-10-2019</div>
         </div>
@@ -245,7 +245,7 @@
         </el-table-column>
 
         <el-table-column align="center" prop="k4">
-          <!--任务弹窗-->
+          <!--区域弹窗-->
           <el-popover
                   slot="header"
                   placement="bottom"
@@ -684,7 +684,7 @@
 
 <script>
 export default {
-  name: 'Analysis',
+  name: 'analysis',
   data() {
     const personOptions = ['1', '2', '3', '4']
     const data = [
@@ -889,12 +889,14 @@ export default {
       justify-content: space-between;
     }
     .video-box {
+      overflow: hidden;
       width: 100%;
       .video-item {
+        /*width: 15%;*/
+        min-width: 135px;
         padding: 10px;
         text-align: center;
         float: left;
-        width: 135px;
         cursor: pointer;
         .remarks {
           color: #606266;

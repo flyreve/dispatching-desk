@@ -79,7 +79,7 @@ const dataRoutes = [
     component: () => import('@/layout/index.vue'),
     children: [
       {
-        path: 'track',
+        path: 'index',
         name: 'track-record',
         component: () => import('@/views/data-center/track-record/index.vue'),
         meta: { title: '轨迹记录', icon: 'el-icon-user' }
