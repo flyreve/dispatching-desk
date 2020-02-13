@@ -38,6 +38,13 @@ const dataRoutes = [
         name: 'task-assessment',
         component: () => import('@/views/data-center/task-assessment/index.vue'),
         meta: { title: '任务考核', icon: 'el-icon-user' }
+      },
+      {
+        path: 'details',
+        name: 'assessment-details',
+        hidden: true,
+        component: () => import('@/views/data-center/task-assessment/assessment-details.vue'),
+        meta: { title: '考核详情', icon: 'el-icon-user', activeMenu: '/task-assessment/index' }
       }
     ]
   },

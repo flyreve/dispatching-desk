@@ -49,13 +49,14 @@
     </div>
     <el-divider direction="vertical"></el-divider>
     <div class="right">
-      <div class="flex" style="justify-content: flex-end">
+      <div class="flex util" style="justify-content: flex-end">
         <el-button type="danger" round icon="el-icon-s-order" class="ml-10">查看记录</el-button>
         <el-button type="danger" round icon="el-icon-download">下载</el-button>
         <el-button type="text" icon="el-icon-upload2">导出数据</el-button>
+        <el-button class="close-btn" type="text" @click="goBack"><i class="el-icon-close" /></el-button>
       </div>
       <div class="chart-box">
-        <el-progress width="300" type="circle" :percentage="75"></el-progress>
+        <el-progress :width="300" type="circle" :percentage="75"></el-progress>
         <br>
         <p class="mt-10 fz-16" style="padding: 20px 0">安全目标明确，安全生产责任制，岗位职责及工作标准健全完善。</p>
       </div>
@@ -102,6 +103,9 @@
     }
     .right {
       flex: 1;
+      .util {
+        padding: 10px 0;
+      }
     }
     .left {
       i {
@@ -118,7 +122,7 @@
     }
     .chart-box {
       text-align: center;
-      margin-top: 20px;
+      margin-top: 40px;
       width: 100%;
     }
   }
