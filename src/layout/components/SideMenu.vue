@@ -27,9 +27,7 @@ export default {
   computed: {
     ...mapGetters([ 'navMenuList', 'navMenuActive', 'sideMenuList' ])
   },
-  mounted() {
-    this.$router.push({ name: this.sideMenuList[0].children[0].name })
-  },
+  mounted() {},
   methods: {
     ...mapActions('menu', ['setMenuActive']),
     handleChangeMenu(menu) {

@@ -1,3 +1,4 @@
+<!--page: 统计-->
 <template>
   <div class="statistics-container width-page">
     <h3>统计</h3>

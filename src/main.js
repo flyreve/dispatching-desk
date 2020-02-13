@@ -5,9 +5,7 @@ import store from './store'
 import ElementUI from 'element-ui'
 import BaiduMap from 'vue-baidu-map'
 import 'element-ui/lib/theme-chalk/index.css'
-import '@/styles/default.scss'
-import '@/styles/element-ui.scss'
-import '@/styles/page.scss'
+import '@/styles/index.scss'
 
 Vue.use(ElementUI, {
   size: 'mini' // set element-ui default size
