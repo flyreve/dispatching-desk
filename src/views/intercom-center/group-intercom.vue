@@ -14,24 +14,24 @@
       </div>
       <div class="card-body mt-10">
         <div class="group-list">
-          <div v-for="(i, index) in filterGroup" :key="index + 's'" class="group-item flex">
+          <div v-for="(i, index) in filterGroup" :key="index + 's'" class="group-item flex" @click="visibleCall = true">
             <div>
               <div class="fz-10">XXXXX（固定群组名称）</div>
               <el-rate v-if="i.type === 'group'" v-model="levelValue" />
             </div>
             <div class="flex">
-              <i class="el-icon-user pointer fz-14 pl-5" @click="visibleList = true" />
-              <i class="el-icon-headset pointer fz-14 pl-5" @click="visibleMonitor = true" />
-              <i class="el-icon-lock pointer fz-14 pl-5" @click="visibleMember = true" />
-              <i class="el-icon-setting pointer fz-14 pl-5" @click="openEdit(i)" />
+              <i class="el-icon-user pointer fz-14 pl-5" @click.stop="visibleList = true" />
+              <i class="el-icon-headset pointer fz-14 pl-5" @click.stop="visibleMonitor = true" />
+              <i class="el-icon-lock pointer fz-14 pl-5" @click.stop="visibleMember = true" />
+              <i class="el-icon-setting pointer fz-14 pl-5" @click.stop="openEdit(i)" />
             </div>
           </div>
         </div>
       </div>
       <div class="card-footer flex mt-10" style="justify-content: space-around">
-        <el-button round class="mini-btn">创建群组</el-button>
+        <el-button round class="mini-btn" @click="visibleGroupAdd = true">创建群组</el-button>
         <el-divider direction="vertical" />
-        <el-button round class="mini-btn">创建会话</el-button>
+        <el-button round class="mini-btn" @click="visibleSessionAdd = true">创建会话</el-button>
       </div>
     </el-card>
 
@@ -204,6 +204,82 @@
         </el-button>
       </div>
     </el-card>
+
+    <!--    固定群组-->
+    <el-card class="main-2-card msg-call-card" v-if="visibleCall">
+      <div slot="header">
+        <span class="fz-16">xxxx(固定群组名称)</span>
+        <el-button class="close-btn" type="text" @click="visibleCall = false"><i class="el-icon-close" /></el-button>
+      </div>
+    </el-card>
+
+    <!--    创建群组-->
+    <el-card class="main-2-card" v-if="visibleGroupAdd">
+      <div slot="header" v-if="step === 1">
+        <span class="remarks">已选中的成员</span>
+        <el-button class="close-btn" type="text" @click="visibleGroupAdd = false"><i class="el-icon-close" /></el-button>
+      </div>
+      <div v-if="step === 1">
+        <div class="flex" v-for="(i, j) in 3" :key="j + 's'" style="border-bottom: 1px dashed #ccc; padding: 10px 0">
+          <span>xxx(备注名/账号)</span>
+          <div class="flex">
+            <el-select v-model="value1" placeholder="优先级" style="width: 80px">
+              <el-option label="低" value="低"></el-option>
+              <el-option label="高" value="高"></el-option>
+            </el-select>
+          </div>
+        </div>
+      </div>
+      <div v-if="step === 1" align="center" style="width: 250px; position: absolute; bottom: 14px;left:0">
+        <el-button @click="step = 2">下一步</el-button>
+      </div>
+      <div slot="header" v-if="step === 2">
+        <span class="fz-16">编辑群组名称</span>
+        <el-button class="close-btn" type="text" @click="visibleGroupAdd = false"><i class="el-icon-close" /></el-button>
+      </div>
+      <div class="form" v-if="step === 2">
+        <el-input placeholder="群组名称"></el-input>
+        <el-input class="mt-20" placeholder="群组描述" type="textarea" rows="8"></el-input>
+        <el-input class="mt-20" placeholder="排队人员"></el-input>
+        <el-input class="mt-20" placeholder="发言时长"></el-input>
+        <el-input class="mt-20" placeholder="优先级"></el-input>
+      </div>
+      <div  v-if="step === 2" align="center" class="flex" style="width: 250px; position: absolute; bottom: 14px;left:0; justify-content: space-around">
+        <el-button @click="step = 1">上一步</el-button>
+        <el-button>完成创建</el-button>
+      </div>
+    </el-card>
+
+    <!--    创建会话-->
+    <el-card class="main-2-card" v-if="visibleSessionAdd">
+      <div slot="header" v-if="step === 1">
+        <span class="remarks">已选中的成员</span>
+        <el-button class="close-btn" type="text" @click="visibleSessionAdd = false"><i class="el-icon-close" /></el-button>
+      </div>
+      <div v-if="step === 1">
+        <div class="flex" v-for="(i, j) in 1" :key="j + 's'" style="border-bottom: 1px dashed #ccc; padding: 10px 0">
+          <span>xxx(备注名/账号)</span>
+          <div class="flex">
+            <i class="el-icon-setting"></i>
+          </div>
+        </div>
+      </div>
+      <div v-if="step === 1" align="center" style="width: 250px; position: absolute; bottom: 14px;left:0">
+        <el-button @click="step = 2">下一步</el-button>
+      </div>
+      <div slot="header" v-if="step === 2">
+        <span class="fz-16">编辑会话名称</span>
+        <el-button class="close-btn" type="text" @click="visibleSessionAdd = false"><i class="el-icon-close" /></el-button>
+      </div>
+      <div class="form" v-if="step === 2">
+        <el-input placeholder="会话名称"></el-input>
+      </div>
+      <div  v-if="step === 2" align="center" class="flex" style="width: 250px; position: absolute; bottom: 14px;left:0; justify-content: space-around">
+        <el-button @click="step = 1">上一步</el-button>
+        <el-button>完成创建</el-button>
+      </div>
+    </el-card>
+
   </div>
 </template>
 
@@ -250,6 +326,7 @@ export default {
       }]
     }]
     return {
+      step: 1,
       levelValue: 3,
       searchKey: '',
       value1: '',
@@ -260,6 +337,9 @@ export default {
       visibleMemberAdd: false,
       visibleMonitor: false,
       visibleGroupEdit: false,
+      visibleGroupAdd: false,
+      visibleSessionAdd: false,
+      visibleCall: false,
       groupData: [
         { type: 'group' },
         { type: 'group' },
@@ -339,9 +419,13 @@ export default {
     .group-list {
       height: 100%;
       .group-item {
+        cursor: pointer;
         min-height: 35px;
         padding: 5px;
         border-bottom: 1px dashed #E9E9E9;
+        &:hover {
+          background: #F0F0F0;
+        }
       }
     }
 
@@ -382,6 +466,9 @@ export default {
         cursor: pointer;
         border-bottom: 1px dashed #5F5F5F;
       }
+    }
+    .msg-call-card {
+      width: 500px;
     }
   }
 </style>
