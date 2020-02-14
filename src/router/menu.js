@@ -8,50 +8,61 @@ import surveillanceRoutes from './modules/surveillance'
 
 // 卡控履职
 export const cardControlPerformance = [{
-    icon: 'el-icon-s-help',
+    icon: 'data_center_@2x',
+    activeIcon: 'data_center_active_@2x',
     name: '数据中心',
     routers: dataRoutes
 }, {
-    icon: 'el-icon-s-help',
+    icon: 'task_@2x',
+    activeIcon: 'task_active@2x',
     name: '任务管理',
     routers: taskRoutes
 }, {
-    icon: 'el-icon-s-help',
+    icon: 'alarm_@2x',
+    activeIcon: 'alarm_active_@2x',
     name: '告警中心',
     routers: alarmRoutes
 }, {
-    icon: 'el-icon-s-help',
+    icon: 'msg_@2x',
+    activeIcon: 'msg_active_@2x',
     name: '通知中心',
     routers: notificationRoutes
 }, {
-    icon: 'el-icon-s-help',
+    icon: 'position_@2x',
+    activeIcon: 'position_active_@2x',
     name: '位置管理',
     routers: locationRoutes
 }, {
-    icon: 'el-icon-s-help',
+    icon: 'call+_@2x',
+    activeIcon: 'call+_active@2x',
     name: '和对讲',
     routers: intercomRoutes
 }]
 
 // 作业监控
 export const jobMonitoring = [{
-    icon: 'el-icon-s-help',
+    icon: 'call+_@2x',
+    activeIcon: 'call+_active@2x',
     name: '和对讲',
     routers: intercomRoutes
 }, {
-  icon: 'el-icon-s-help',
-  name: '视频监控',
-  routers: surveillanceRoutes
+    icon: 'video_monitor_@2x',
+    activeIcon: 'video_monitor_active@2x',
+    name: '视频监控',
+    routers: surveillanceRoutes
 }, {
-    icon: 'el-icon-s-help',
+    icon: 'data_center_@2x',
+    activeIcon: 'data_center_active_@2x',
     name: '数据中心',
     routers: dataRoutes
 }, {
-    icon: 'el-icon-s-help',
+    icon: 'alarm_@2x',
+    activeIcon: 'alarm_active_@2x',
     name: '告警中心',
     routers: alarmRoutes
 },{
-    icon: 'el-icon-s-help',
+    icon: 'position_@2x',
+    activeIcon: 'position_active_@2x',
     name: '位置管理',
     routers: locationRoutes
 }]

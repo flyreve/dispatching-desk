@@ -6,6 +6,7 @@ import ElementUI from 'element-ui'
 import BaiduMap from 'vue-baidu-map'
 import 'element-ui/lib/theme-chalk/index.css'
 import '@/styles/index.scss'
+import '@/iconfont/iconfont.css'
 
 Vue.use(ElementUI, {
   size: 'mini' // set element-ui default size

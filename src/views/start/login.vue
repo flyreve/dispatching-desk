@@ -2,7 +2,11 @@
   <div class="login-container app-container">
     <start-layout>
       <div slot="content" class="form-box">
-        <div class="box-header">登录系统</div>
+        <div class="box-header">
+          <i class="iconfont"></i>
+          <img width="20" :src="loginIcon">
+          <span class="ml-10">登录系统</span>
+        </div>
         <el-form label-width="57px" class="box-form">
           <el-form-item label="账号">
             <el-input v-model="loginForm.name" placeholder="请输入用户名" />
@@ -33,6 +37,7 @@ export default {
   data() {
     return {
       remember: '',
+      loginIcon: require(`@/assets/login/logo@2x.png`),
       loginForm: {
         name: '',
         password: '',
@@ -83,10 +88,13 @@ export default {
         font-size: 18px;
         font-weight: 500;
         height: 50px;
-        line-height: 50px;
+        /*line-height: 50px;*/
         text-align: center;
         color: #3F78D3;
         border-bottom: 2px dashed #C3C6CB;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
 
       .box-form {

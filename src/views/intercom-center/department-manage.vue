@@ -70,12 +70,11 @@
           </div>
         </div>
       </el-tree>
-      <div style="margin: 15px 0;" />
-      <div class="flex">
+      <div class="flex mt-10">
         <el-checkbox v-model="checkAll" :indeterminate="isIndeterminate" @change="handleCheckAllChange">全选</el-checkbox>
         共选择{{ checkedPerson.length }}人
       </div>
-      <div align="center" class="flex" style="justify-content: space-around">
+      <div align="center" class="flex mt-10" style="justify-content: space-around">
         <el-button v-if="!visitAll" round style="padding: 5px 8px" @click="visibleMove = true">移动成员</el-button>
         <el-button round style="padding: 5px 8px">创建群组</el-button>
         <el-button round style="padding: 5px 8px">创建会话</el-button>
@@ -281,7 +280,7 @@ export default {
     .person-item {
       display: flex;
       justify-content: space-between;
-      padding: 10px 5px 10px 3px;
+      padding: 10px 5px;
       border-bottom: 1px solid #D0CECE;
     }
   }

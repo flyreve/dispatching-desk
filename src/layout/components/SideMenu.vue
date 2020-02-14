@@ -3,13 +3,16 @@
   <div class="components-menu">
     <div v-for="(item, index) in navMenuList" :key="index + 'm'" class="menu-item" :class="navMenuActive === item.name ? 'menu-active' : ''" @click="handleChangeMenu(item)">
       <div class="wrap">
-        <div class="icon"><i :class="item.icon" /></div>
+        <div class="icon">
+          <img v-if="navMenuActive === item.name" height="25" :src="menuIcon(item.icon)" alt="">
+          <img v-else height="25" :src="menuIcon(item.activeIcon)" alt="">
+        </div>
         <div class="name">{{ item.name }}</div>
       </div>
     </div>
     <div class="menu-item">
       <div class="wrap">
-        <div class="icon"><i class="el-icon-more" /></div>
+        <div class="icon"><img height="25" :src="menuIcon('add_@2x')" alt=""></div>
         <div class="name">添加</div>
       </div>
     </div>
@@ -25,7 +28,12 @@ export default {
     return {}
   },
   computed: {
-    ...mapGetters([ 'navMenuList', 'navMenuActive', 'sideMenuList' ])
+    ...mapGetters([ 'navMenuList', 'navMenuActive', 'sideMenuList' ]),
+    menuIcon() {
+      return function (icon) {
+        return require(`@/assets/menu/${icon}.png`)
+      }
+    }
   },
   mounted() {},
   methods: {
@@ -52,7 +60,7 @@ export default {
     .menu-item {
       height: 100%;
       padding: 0 10px;
-      margin: 0 5px;
+      margin: 0 8px;
       color: #fff;
       text-align: center;
       cursor: pointer;

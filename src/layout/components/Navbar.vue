@@ -15,17 +15,17 @@
       </div>
       <el-divider direction="vertical" />
       <div class="right-item">
-        <i class="el-icon-eleme" /><br>
+        <img width="25" :src="mapIcon"><br>
         地图管理
       </div>
       <el-divider direction="vertical" />
       <div class="right-item">
-        <i class="el-icon-eleme" /><br>
+        <img width="25" :src="settingIcon"><br>
         设置
       </div>
       <el-divider direction="vertical" />
       <div class="right-item" @click="handleLoginOut">
-        <i class="el-icon-eleme" /><br>
+        <img width="25" :src="loginOutIcon"><br>
         退出
       </div>
     </div>
@@ -37,7 +37,10 @@ export default {
   name: 'Navbar',
   data() {
     return {
-      squareUrl: 'https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png'
+      squareUrl: 'https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png',
+      mapIcon: require(`@/assets/menu/map_@2x.png`),
+      settingIcon: require(`@/assets/menu/setting_@2x.png`),
+      loginOutIcon: require(`@/assets/menu/login_out_@2x.png`),
     }
   },
   mounted() {

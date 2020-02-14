@@ -54,13 +54,13 @@
         <p>处理状态：已处理/未处理</p>
         <p>地址：云南省昆明市盘龙区星耀大厦</p>
       </div>
-      <div class="flex fz-22 mt-10">
-        <i class="el-icon-location"></i>
-        <i class="el-icon-location"></i>
-        <i class="el-icon-location"></i>
-        <i class="el-icon-location"></i>
-        <el-link :underline="false" @click="visibleHandling = true"> <i class="el-icon-info"></i></el-link>
-        <i class="el-icon-location"></i>
+      <div class="flex mt-10">
+        <i class="iconfont icon-microphone" style="font-size: 25px"></i>
+        <i class="iconfont icon-comments" style="font-size: 25px"></i>
+        <i class="iconfont icon-play" style="font-size: 25px"></i>
+        <i class="iconfont icon-image-text" style="font-size: 25px"></i>
+        <el-link :underline="false" @click="visibleHandling = true"> <i class="iconfont icon-warehouse" style="font-size: 25px"></i></el-link>
+        <i class="iconfont icon-link" style="font-size: 25px"></i>
       </div>
     </el-card>
 
@@ -72,7 +72,7 @@
       </div>
       <div class="handling-list">
         <div class="handling-item" v-for="(i, j) in handlingList" :key="j + 'h'">
-          <i class="fz-22 c-deep-blue" :class="i.icon"></i>
+          <i class="iconfont c-deep-blue" :class="i.icon" style="font-size: 35px"></i>
           <div style="padding-left: 10px">
             <p class="fz-16" style="line-height: 20px">{{i.name}}</p>
             <p class="remarks">{{i.remark}}</p>
@@ -97,11 +97,11 @@
         checkAll: false,
         isIndeterminate: true,
         handlingList: [
-          { icon: 'el-icon-box', name: '发起临时任务', remark: '说明说明说明说明说明说明说明'},
-          { icon: 'el-icon-box', name: '发送至群组会话', remark: '说明说明说明说明说明说明'},
-          { icon: 'el-icon-box', name: '发起图文通知 ', remark: '说明说明说明说明说明说明'},
-          { icon: 'el-icon-box', name: '发起语音通知', remark: '说明说明说明说明说'},
-          { icon: 'el-icon-box', name: '其他', remark: '说明说明说明说明说明'}
+          { icon: 'icon-manage-order', name: '发起临时任务', remark: '说明说明说明说明说明说明说明'},
+          { icon: 'icon-Customermanagement', name: '发送至群组会话', remark: '说明说明说明说明说明说明'},
+          { icon: 'icon-tradealert', name: '发起图文通知 ', remark: '说明说明说明说明说明说明'},
+          { icon: 'icon-notice', name: '发起语音通知', remark: '说明说明说明说明说'},
+          { icon: 'icon-all', name: '其他', remark: '说明说明说明说明说明'}
         ]
       }
     },

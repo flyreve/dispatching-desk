@@ -38,7 +38,7 @@ export default {
   $footer-h: 50px;
   .login-layout {
     background: #D7EEFE;
-    background-image: url("../../../assets/img/login-bg.png");
+    background-image: url("../../../assets/login/login-bg.png");
     background-size: cover;
     background-position: 50%;
     position: relative;
