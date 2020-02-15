@@ -11,6 +11,7 @@ import notificationRoutes from './modules/notification'
 import taskRoutes from './modules/task'
 import alarmRoutes from './modules/alarm'
 import surveillanceRoutes from './modules/surveillance'
+import systemRoutes from './modules/system'
 
 const createRouter = () => new Router({
   routes: [
@@ -34,7 +35,8 @@ const createRouter = () => new Router({
     ...notificationRoutes,
     ...taskRoutes,
     ...alarmRoutes,
-    ...surveillanceRoutes
+    ...surveillanceRoutes,
+    ...systemRoutes
   ]
 })
 

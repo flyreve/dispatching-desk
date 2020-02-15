@@ -5,6 +5,7 @@ import notificationRoutes from './modules/notification'
 import taskRoutes from './modules/task'
 import alarmRoutes from './modules/alarm'
 import surveillanceRoutes from './modules/surveillance'
+import systemRoutes from './modules/system'
 
 // 卡控履职
 export const cardControlPerformance = [{
@@ -37,6 +38,11 @@ export const cardControlPerformance = [{
     activeIcon: 'call+_active@2x',
     name: '和对讲',
     routers: intercomRoutes
+}, {
+    icon: 'task_@2x',
+    activeIcon: 'task_active@2x',
+    name: '系统设置',
+    routers: systemRoutes
 }]
 
 // 作业监控
