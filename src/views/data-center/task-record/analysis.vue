@@ -836,12 +836,6 @@ export default {
       height: 3em;
     }
   }
-  .el-table, .el-table__expanded-cell {
-    background-color: rgba(0,0,0,0)!important;
-  }
-  .el-table th, .el-table tr {
-    background-color: rgba(0,0,0,0)!important;
-  }
 </style>
 
 <style scoped lang="scss">

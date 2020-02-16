@@ -71,4 +71,9 @@ export const jobMonitoring = [{
     activeIcon: 'position_active_@2x',
     name: '位置管理',
     routers: locationRoutes
+}, {
+  icon: 'task_@2x',
+  activeIcon: 'task_active@2x',
+  name: '系统设置',
+  routers: systemRoutes
 }]
