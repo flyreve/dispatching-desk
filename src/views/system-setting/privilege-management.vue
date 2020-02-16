@@ -29,7 +29,7 @@
         <el-table-column align="center" prop="k4" label="创建时间"/>
         <el-table-column align="center" label="操作" width="120" fixed="right">
           <div slot-scope="{row}" class="flex">
-            <el-link :underline="false" type="primary">修改权限</el-link>
+            <el-link :underline="false" type="primary" @click="visibleEdit = true">修改权限</el-link>
             <el-link :underline="false" type="primary" @click="handleDelete">删除</el-link>
           </div>
         </el-table-column>
@@ -47,7 +47,7 @@
     </div>
 
     <!--添加子调度员-->
-    <el-dialog :title="dialogTitleMap[step]" :visible.sync="visibleAdd" width="30%">
+    <el-dialog title="添加子调度员" :visible.sync="visibleAdd" width="30%">
       <div v-if="step === 0" class="step-content">
         <el-input
                 v-model="searchKey"
@@ -102,6 +102,7 @@
         </div>
       </div>
       <div v-if="step === 1" class="step-content">
+        <div class="remarks">设置调度员可访问的功能权限</div>
         <div class="menu-item flex" v-for="(item, index) in navMenuList" :key="index + 'm'">
           <div class="flex">
             <img height="25" :src="menuIcon(item.icon)" alt="">
@@ -115,6 +116,27 @@
         </div>
         <div align="center" class="step-footer flex" style="justify-content: space-around">
           <el-button style="padding: 5px 10px" @click="step = 0" size="normal">上一步</el-button>
+          <el-button style="padding: 5px 10px" size="normal">完成</el-button>
+        </div>
+      </div>
+    </el-dialog>
+
+    <!--修改子调度员权限-->
+    <el-dialog title="修改子调度员权限" :visible.sync="visibleEdit" width="30%">
+      <div class="step-content">
+        <div class="remarks">设置调度员可访问的功能权限</div>
+        <div class="menu-item flex" v-for="(item, index) in navMenuList" :key="index + 'm'">
+          <div class="flex">
+            <img height="25" :src="menuIcon(item.icon)" alt="">
+            <span class="ml-5">{{item.name}}</span>
+          </div>
+          <el-switch
+                  v-model="value"
+                  active-color="#13ce66"
+                  inactive-color="#ccc">
+          </el-switch>
+        </div>
+        <div align="center" class="step-footer flex" style="justify-content: space-around">
           <el-button style="padding: 5px 10px" size="normal">完成</el-button>
         </div>
       </div>
@@ -187,6 +209,7 @@
         visibleInfo: false,
         visiblePopover: false,
         visibleAdd: false,
+        visibleEdit: false,
         visitAll: true,
         viewType: 1,
         dialogTitleMap: ['添加子调度员', '修改子调度员权限'],
