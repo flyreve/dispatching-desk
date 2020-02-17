@@ -164,12 +164,7 @@
         <span class="fz-16">拖动调整下级部门排序</span>
         <el-button class="close-btn" type="text" @click="visibleSort = false"><i class="el-icon-close" /></el-button>
       </div>
-      <div class="sort-list">
-        <div v-for="i in 3" :key="i" class="sort-item flex">
-          <span>组织{{ i }}</span>
-          <el-button type="text" size="large"><i class="el-icon-s-operation" /></el-button>
-        </div>
-      </div>
+      <Kanban :key="1" :list="list" @listChange="sortChange" />
       <div align="center" class="mt-10">
         <el-button type="primary" round style="padding: 5px 80px">保存</el-button>
       </div>
@@ -179,8 +174,12 @@
 </template>
 
 <script>
+import Kanban from '@/components/Kanban'
 export default {
   name: 'DepartmentManage',
+  components: {
+    Kanban
+  },
   data() {
     const personOptions = ['1', '2', '3', '4']
     const data = [
@@ -222,6 +221,12 @@ export default {
       }]
     }]
     return {
+      list: [
+        { name: '组织1', id: 1 },
+        { name: '组织2', id: 2 },
+        { name: '组织3', id: 3 },
+        { name: '组织4', id: 4 }
+      ],
       searchKey: '',
       visibleMember: false,
       visibleMove: false,
@@ -239,6 +244,9 @@ export default {
   mounted() {
   },
   methods: {
+    sortChange(val) {
+      console.log('newList：', val)
+    },
     handleCheckAllChange(val) {
       this.checkedPerson = val ? this.members : []
       this.isIndeterminate = false
@@ -282,12 +290,6 @@ export default {
       justify-content: space-between;
       padding: 10px 5px;
       border-bottom: 1px solid #D0CECE;
-    }
-  }
-  .sort-list {
-    .sort-item {
-      cursor: pointer;
-      border-bottom: 1px dashed #5F5F5F;
     }
   }
 </style>

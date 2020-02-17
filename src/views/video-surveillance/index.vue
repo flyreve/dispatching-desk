@@ -246,7 +246,7 @@
         }
         .scale-3 {
           width: 66%;
-          height: 66%;
+          height: 65.9%;
           .wrap {
             font-size: 16px;
           }
