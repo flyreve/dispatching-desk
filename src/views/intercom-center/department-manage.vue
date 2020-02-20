@@ -23,7 +23,7 @@
             <div class="flex">
               <el-checkbox class="inlineBlock" />
               <i class="el-icon-user fz-16" style="margin-left: 5px" />
-              <div>（备注名/账号）</div>
+              <div>（备注名/账号11）</div>
             </div>
             <div class="flex">
               <i class="el-icon-chat-line-round pointer fz-14 pl-5" />
@@ -60,7 +60,7 @@
           <div v-else class="person-item" style="border-bottom: unset; padding-left: 0">
             <div class="flex">
               <i class="el-icon-user fz-16" style="margin-left: 5px" />
-              <div>（备注名/账号）</div>
+              <div>{{ node.label }} 用户</div>
             </div>
             <div class="flex">
               <i class="el-icon-chat-line-round pointer fz-14 pl-5" />
@@ -192,11 +192,12 @@ export default {
         children: [{
           name: '1',
           id: 9,
-          label: '测试组 1-1-1'
+          label: '1-1-1',
+          user: 'test用户'
         }, {
           name: '2',
           id: 10,
-          label: '测试组 1-1-2'
+          label: '1-1-1'
         }]
       }]
     }, {
