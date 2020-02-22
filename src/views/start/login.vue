@@ -16,7 +16,9 @@
           </el-form-item>
           <el-form-item label="验证码">
             <el-input v-model="loginForm.code" placeholder="验证码" style="width: 60%" />
-            <div class="inlineBlock code pointer">123</div>
+            <div class="fr code pointer">
+              <img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=4160572592,2121035394&fm=26&gp=0.jpg" alt="">
+            </div>
           </el-form-item>
           <div style="overflow: hidden; margin-bottom: 10px">
             <el-checkbox v-model="remember" class="fl">记住密码</el-checkbox>
@@ -107,6 +109,10 @@ export default {
           height: 28px;
           background: #ccc;
           margin-left: 14px;
+          img {
+            width: 100%;
+            height: 100%;
+          }
         }
       }
     }
